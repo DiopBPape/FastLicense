@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     android:background="#F5F5F5"
     android:padding="24dp"
     tools:context=".MainActivity">
@@ -20,6 +21,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
+=======
+    tools:context=".Home">
+    
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="-54dp"
+        tools:layout_editor_absoluteY="0dp">
+>>>>>>> parent of a2fa6eb (formattazione activity_main)
 
         <TextView
             android:id="@+id/title"
@@ -54,6 +64,7 @@
             android:background="@drawable/input_background"
             android:layout_marginBottom="24dp"/>
 
+<<<<<<< HEAD
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="250dp"
@@ -62,6 +73,11 @@
             android:textSize="18sp"
             android:backgroundTint="#3F51B5"
             android:textColor="#FFFFFF"/>
+=======
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+>>>>>>> parent of a2fa6eb (formattazione activity_main)
 
     </LinearLayout>
 
