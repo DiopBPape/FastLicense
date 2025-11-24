@@ -53,8 +53,7 @@
             android:padding="16dp"
             android:background="@drawable/input_background"
             android:layout_marginBottom="24dp"/>
-
-
+        
         <Button
             android:id="@+id/btnLogin"
             android:layout_width="250dp"
