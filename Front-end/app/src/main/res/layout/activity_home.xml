@@ -15,17 +15,6 @@
         tools:layout_editor_absoluteY="0dp">
 
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="208dp"
-            android:layout_height="58dp"
-            android:fontFamily="cursive"
-            android:text="Fast licence"
-            android:textColor="#3F51B5"
-            android:textSize="50dp"
-            tools:layout_editor_absoluteX="115dp"
-            tools:layout_editor_absoluteY="34dp" />
-
         <View
             android:id="@+id/cerchio"
             android:layout_width="128dp"
@@ -72,8 +61,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cerchio"
             app:layout_constraintVertical_bias="0.283" />
-
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
