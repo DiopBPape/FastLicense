@@ -2,83 +2,85 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
-    android:background="#F5F5F5"
-    android:padding="24dp"
-    tools:context=".MainActivity">
-
-
-    <LinearLayout
-        android:id="@+id/container"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-=======
     tools:context=".Home">
-    
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="-54dp"
         tools:layout_editor_absoluteY="0dp">
->>>>>>> parent of a2fa6eb (formattazione activity_main)
 
         <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Fast license"
-            android:textSize="40sp"
+            android:id="@+id/textView"
+            android:layout_width="208dp"
+            android:layout_height="58dp"
             android:fontFamily="cursive"
-            android:textStyle="italic"
+            android:text="Fast licence"
             android:textColor="#3F51B5"
-            android:layout_marginBottom="24dp"/>
+            android:textSize="50dp"
+            tools:layout_editor_absoluteX="115dp"
+            tools:layout_editor_absoluteY="34dp" />
 
+        <View
+            android:id="@+id/cerchio"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:background="@drawable/cerchio"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.197"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.285" />
 
-        <EditText
-            android:id="@+id/editEmail"
-            android:layout_width="250dp"
-            android:layout_height="55dp"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            android:padding="16dp"
-            android:background="@drawable/input_background"
-            android:layout_marginBottom="16dp"/>
+        <View
+            android:id="@+id/triangolo"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_marginTop="172dp"
+            android:background="@drawable/triangolo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cerchio"
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <View
+            android:id="@+id/quadrato"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="76dp"
+            android:background="@drawable/quadrato"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.505"
+            app:layout_constraintStart_toEndOf="@+id/rombo"
+            app:layout_constraintTop_toBottomOf="@+id/triangolo"
+            app:layout_constraintVertical_bias="0.044" />
 
-        <EditText
-            android:id="@+id/editPassword"
-            android:layout_width="250dp"
-            android:layout_height="55dp"
-            android:hint="Password"
-            android:inputType="textPassword"
-            android:padding="16dp"
-            android:background="@drawable/input_background"
-            android:layout_marginBottom="24dp"/>
+        <View
+            android:id="@+id/rombo"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:background="@drawable/rombo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.197"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cerchio"
+            app:layout_constraintVertical_bias="0.283" />
 
-<<<<<<< HEAD
-        <Button
-            android:id="@+id/btnLogin"
-            android:layout_width="250dp"
-            android:layout_height="55dp"
-            android:text="Accedi"
-            android:textSize="18sp"
-            android:backgroundTint="#3F51B5"
-            android:textColor="#FFFFFF"/>
-=======
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
->>>>>>> parent of a2fa6eb (formattazione activity_main)
 
-    </LinearLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_menu"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
