@@ -15,12 +15,17 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="208dp"
-            android:layout_height="58dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:fontFamily="cursive"
             android:text="Fast licence"
             android:textColor="#3F51B5"
             android:textSize="50dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
             tools:layout_editor_absoluteX="115dp"
             tools:layout_editor_absoluteY="34dp" />
 
@@ -28,49 +33,42 @@
             android:id="@+id/cerchio"
             android:layout_width="128dp"
             android:layout_height="128dp"
+            android:layout_marginTop="128dp"
             android:background="@drawable/cerchio"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.197"
+            app:layout_constraintEnd_toStartOf="@id/triangolo"
+            app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.285" />
+            app:layout_constraintTop_toBottomOf="@id/textView" />
 
         <View
             android:id="@+id/triangolo"
             android:layout_width="128dp"
             android:layout_height="128dp"
-            android:layout_marginTop="172dp"
+            android:layout_marginTop="128dp"
             android:background="@drawable/triangolo"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/cerchio"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toEndOf="@id/cerchio"
+            app:layout_constraintTop_toBottomOf="@id/textView" />
 
         <View
             android:id="@+id/quadrato"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:layout_marginTop="76dp"
+            android:layout_marginTop="100dp"
             android:background="@drawable/quadrato"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.505"
-            app:layout_constraintStart_toEndOf="@+id/rombo"
-            app:layout_constraintTop_toBottomOf="@+id/triangolo"
-            app:layout_constraintVertical_bias="0.044" />
+            app:layout_constraintStart_toEndOf="@id/rombo"
+            app:layout_constraintTop_toBottomOf="@id/triangolo" />
 
         <View
             android:id="@+id/rombo"
             android:layout_width="128dp"
             android:layout_height="128dp"
+            android:layout_marginTop="100dp"
             android:background="@drawable/rombo"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.197"
+            app:layout_constraintEnd_toStartOf="@id/quadrato"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cerchio"
-            app:layout_constraintVertical_bias="0.283" />
-
+            app:layout_constraintTop_toBottomOf="@id/cerchio" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

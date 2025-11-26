@@ -6,6 +6,7 @@
         android:icon="@drawable/home_icon"/>
     <item
         android:id="@+id/areaUtente"
-        android:title="area utente"/>
+        android:title="area utente"
+        android:icon="@drawable/profile_icon"/>
 
 </menu>
