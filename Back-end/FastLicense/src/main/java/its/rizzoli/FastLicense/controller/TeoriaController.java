@@ -12,12 +12,12 @@ import java.util.Map;
 
 @RestController
 public class TeoriaController {
-    @Autowired
-    CapitoliRepository capitoliRepository;
+    //@Autowired
+    //CapitoliRepository capitoliRepository;
 
-    @GetMapping("/getCapitoli")
+    /*@GetMapping("/getCapitoli")
     public ResponseEntity<?> getSedi() {
         Iterable<Capitoli> capitoli = capitoliRepository.findAll();
         return ResponseEntity.ok(Map.of("capitoli", capitoli));
-    }
+    }*/
 }
