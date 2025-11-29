@@ -72,10 +72,56 @@
             app:layout_constraintVertical_bias="0.283" />
 
 
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quiz"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/cerchio"
+            app:layout_constraintEnd_toEndOf="@+id/cerchio"
+            app:layout_constraintStart_toStartOf="@+id/cerchio"
+            app:layout_constraintTop_toTopOf="@+id/cerchio" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="News"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/triangolo"
+            app:layout_constraintEnd_toEndOf="@+id/triangolo"
+            app:layout_constraintStart_toStartOf="@+id/triangolo"
+            app:layout_constraintTop_toTopOf="@+id/triangolo" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Teoria"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/rombo"
+            app:layout_constraintEnd_toEndOf="@+id/rombo"
+            app:layout_constraintStart_toStartOf="@+id/rombo"
+            app:layout_constraintTop_toTopOf="@+id/rombo" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Assistenza"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/quadrato"
+            app:layout_constraintEnd_toEndOf="@+id/quadrato"
+            app:layout_constraintStart_toStartOf="@+id/quadrato"
+            app:layout_constraintTop_toTopOf="@+id/quadrato" />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
