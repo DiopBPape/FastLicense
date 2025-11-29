@@ -1,5 +1,9 @@
 package its.rizzoli.FastLicense.utility;
+
+import its.rizzoli.FastLicense.models.Capitoli;
+import its.rizzoli.FastLicense.models.Immagine;
 import its.rizzoli.FastLicense.models.News;
+import its.rizzoli.FastLicense.repositories.CapitoliRepository;
 import its.rizzoli.FastLicense.repositories.NewsRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -12,18 +16,19 @@ import java.util.List;
 public class DataLoader implements CommandLineRunner {
 
     private final NewsRepository newsRepository;
+    private final CapitoliRepository capitoliRepository;
+    
 
-    public DataLoader(NewsRepository newsRepository) {
+    public DataLoader(NewsRepository newsRepository, CapitoliRepository capitoliRepository) {
         this.newsRepository = newsRepository;
+        this.capitoliRepository = capitoliRepository;
     }
 
     @Override
     public void run(String... args) throws Exception {
-        // Controlla se ci sono già news nel DB
+        // Caricamento news
         if (newsRepository.count() == 0) {
-
             List<News> newsList = Arrays.asList(
-                    // News sul codice della strada
                     createNews("Nuovo limite di velocità in città",
                             "Il Comune ha stabilito un nuovo limite di 30 km/h nelle zone residenziali per aumentare la sicurezza dei pedoni.",
                             LocalDateTime.now().minusDays(1)),
@@ -40,7 +45,6 @@ public class DataLoader implements CommandLineRunner {
                             "La polizia stradale intensificherà i controlli con autovelox sulle principali arterie cittadine.",
                             LocalDateTime.now().minusHours(5)),
 
-                    // News sugli esami
                     createNews("Novità esame teorico",
                             "A partire da questo mese, l'esame teorico prevede nuove domande sulla sicurezza stradale e sulle norme aggiornate.",
                             LocalDateTime.now().minusDays(1).minusHours(2)),
@@ -58,6 +62,38 @@ public class DataLoader implements CommandLineRunner {
             newsRepository.saveAll(newsList);
             System.out.println("News iniziali caricate correttamente.");
         }
+
+        // Caricamento capitoli con immagini
+        if (capitoliRepository.count() == 0) {
+            String[] capitoliTitoli = {
+                    "Incidenti", "Seganli di obbligo", "Patenti", "Posizioni Vigile",
+                    "Segnali di precedenza", "Segnaletica Orizzontale", "Segnali di pericolo",
+                    "Semaforo", "Sicurezza", "Strada"
+            };
+
+            String[] immaginiFileName = {
+                    "incidenti.png", "obbligo.png", "patenti.png", "posizione_vigile.png",
+                    "segnale_precedenza.png", "segnaletica_orizzontale.png", "segnali_pericolo_cap.png",
+                    "semaforo.png", "sicurezza.png", "strade_cap.png"
+            };
+
+            for (int i = 0; i < capitoliTitoli.length; i++) {
+                Capitoli capitolo = new Capitoli();
+                capitolo.setTitolo(capitoliTitoli[i]);
+
+                Immagine immagine = new Immagine();
+                immagine.setFileName(immaginiFileName[i]);
+                immagine.setCapitolo(capitolo);
+
+                capitolo.getImmagini().add(immagine);
+
+                capitoliRepository.save(capitolo);
+            }
+
+
+
+            System.out.println("Capitoli e immagini iniziali caricati correttamente.");
+        }
     }
 
     private News createNews(String titolo, String testo, LocalDateTime dataOra) {
@@ -68,4 +104,3 @@ public class DataLoader implements CommandLineRunner {
         return news;
     }
 }
-

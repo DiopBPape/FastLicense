@@ -7,5 +7,5 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface CapitoliRepository extends CrudRepository<Capitoli, Integer> {
-    //List<Capitoli> findByUser(User user);
+
 }
