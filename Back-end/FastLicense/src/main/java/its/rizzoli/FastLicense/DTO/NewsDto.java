@@ -1,9 +1,12 @@
 package its.rizzoli.FastLicense.DTO;
 
+import java.time.LocalDateTime;
+
 public class NewsDto {
     private Integer id;
     private String titolo;
     private String testo;
+    private LocalDateTime dataOra;
 
     public Integer getId() {
         return id;
@@ -27,6 +30,14 @@ public class NewsDto {
 
     public void setTesto(String testo) {
         this.testo = testo;
+    }
+
+    public LocalDateTime getDataOra() {
+        return dataOra;
+    }
+
+    public void setDataOra(LocalDateTime dataOra) {
+        this.dataOra = dataOra;
     }
 }
 

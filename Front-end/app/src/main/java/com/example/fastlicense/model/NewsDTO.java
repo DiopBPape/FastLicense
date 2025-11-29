@@ -1,23 +1,10 @@
-package its.rizzoli.FastLicense.models;
+package com.example.fastlicense.model;
 
-import jakarta.persistence.*;
-
-import java.time.LocalDateTime;
-
-@Entity
-public class News {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class NewsDTO {
     private Integer id;
-
     private String titolo;
-
-    @Column(columnDefinition = "TEXT")
     private String testo;
-
-    private LocalDateTime dataOra;
-
+    private String dataOra;
 
     public Integer getId() {
         return id;
@@ -43,13 +30,11 @@ public class News {
         this.testo = testo;
     }
 
-    public LocalDateTime getDataOra() {
+    public String getDataOra() {
         return dataOra;
     }
 
-    public void setDataOra(LocalDateTime dataOra) {
+    public void setDataOra(String dataOra) {
         this.dataOra = dataOra;
     }
 }
-
-

@@ -18,12 +18,10 @@ public class SecurityConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/login").permitAll() // <-- LOGIN PUBBLICO
-                        .anyRequest().authenticated()          // tutte le altre richieste richiedono auth
-                );
+                        .anyRequest().permitAll()         // tutte le altre richieste richiedono auth
+                ).httpBasic(httpBasic -> {});
 
 
-        // Se hai un filtro JWT:
-        // http.addFilterBefore(jwtFilter(), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }

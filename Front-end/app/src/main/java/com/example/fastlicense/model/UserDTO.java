@@ -1,9 +1,13 @@
-package its.rizzoli.FastLicense.DTO;
+package com.example.fastlicense.model;
 
 public class UserDTO {
-
     private String username;
     private String password;
+
+    public UserDTO(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
 
     public String getUsername() {
         return username;
@@ -21,5 +25,3 @@ public class UserDTO {
         this.password = password;
     }
 }
-
-

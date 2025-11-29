@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="?android:attr/selectableItemBackground"
+    android:gravity="center_horizontal"> <!-- centra solo orizzontalmente -->
+
+    <TextView
+        android:id="@+id/newsTitolo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:paddingBottom="4dp"/> <!-- distanza dal testo sottostante -->
+
+    <TextView
+        android:id="@+id/newsTesto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textAlignment="center"
+        android:gravity="center"/>
+</LinearLayout>
