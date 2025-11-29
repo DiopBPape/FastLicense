@@ -2,6 +2,9 @@ package its.rizzoli.FastLicense.models;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 public class Argomenti {
 
@@ -17,6 +20,11 @@ public class Argomenti {
     @ManyToOne
     @JoinColumn(name = "capitoloId")
     private Capitoli capitolo;
+
+    @OneToMany(mappedBy = "argomento", cascade = CascadeType.ALL)
+    private List<Immagine> immagini = new ArrayList<>();
+
+
 
     // GETTERS & SETTERS
     public Integer getId() {
@@ -49,6 +57,14 @@ public class Argomenti {
 
     public void setCapitolo(Capitoli capitolo) {
         this.capitolo = capitolo;
+    }
+
+    public List<Immagine> getImmagini() {
+        return immagini;
+    }
+
+    public void setImmagini(List<Immagine> immagini) {
+        this.immagini = immagini;
     }
 }
 

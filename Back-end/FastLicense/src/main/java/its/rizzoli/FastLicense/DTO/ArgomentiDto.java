@@ -1,10 +1,32 @@
 package its.rizzoli.FastLicense.DTO;
 
+import java.util.List;
+
 public class ArgomentiDto {
+
     private Integer id;
     private String titolo;
     private String testo;
+
+    // Info utili sul capitolo, senza portare dietro l'entità completa
     private Integer capitoloId;
+    private String capitoloTitolo;
+
+    // Solo URL delle immagini
+    private List<String> immagini;
+
+    public ArgomentiDto() {}
+
+    public ArgomentiDto(Integer id, String titolo, String testo,
+                        Integer capitoloId, String capitoloTitolo,
+                        List<String> immagini) {
+        this.id = id;
+        this.titolo = titolo;
+        this.testo = testo;
+        this.capitoloId = capitoloId;
+        this.capitoloTitolo = capitoloTitolo;
+        this.immagini = immagini;
+    }
 
     public Integer getId() {
         return id;
@@ -36,6 +58,22 @@ public class ArgomentiDto {
 
     public void setCapitoloId(Integer capitoloId) {
         this.capitoloId = capitoloId;
+    }
+
+    public String getCapitoloTitolo() {
+        return capitoloTitolo;
+    }
+
+    public void setCapitoloTitolo(String capitoloTitolo) {
+        this.capitoloTitolo = capitoloTitolo;
+    }
+
+    public List<String> getImmagini() {
+        return immagini;
+    }
+
+    public void setImmagini(List<String> immagini) {
+        this.immagini = immagini;
     }
 }
 

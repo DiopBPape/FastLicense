@@ -9,11 +9,11 @@ import java.util.Arrays;
 import java.util.List;
 
 @Component
-public class NewsDataLoader implements CommandLineRunner {
+public class DataLoader implements CommandLineRunner {
 
     private final NewsRepository newsRepository;
 
-    public NewsDataLoader(NewsRepository newsRepository) {
+    public DataLoader(NewsRepository newsRepository) {
         this.newsRepository = newsRepository;
     }
 
