@@ -1,106 +1,186 @@
 package its.rizzoli.FastLicense.utility;
 
-import its.rizzoli.FastLicense.models.Capitoli;
-import its.rizzoli.FastLicense.models.Immagine;
-import its.rizzoli.FastLicense.models.News;
-import its.rizzoli.FastLicense.repositories.CapitoliRepository;
-import its.rizzoli.FastLicense.repositories.NewsRepository;
+import its.rizzoli.FastLicense.models.*;
+import its.rizzoli.FastLicense.repositories.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 @Component
 public class DataLoader implements CommandLineRunner {
 
-    private final NewsRepository newsRepository;
+    private final UserRepository userRepository;
+    private final DomandeRepository domandeRepository;
     private final CapitoliRepository capitoliRepository;
-    
+    private final ArgomentiRepository argomentiRepository;
+    private final QuizEseguitoRepository quizEseguitoRepository;
+    private final PunteggioQuizRepository punteggioQuizRepository;
+    private final NewsRepository newsRepository;
 
-    public DataLoader(NewsRepository newsRepository, CapitoliRepository capitoliRepository) {
-        this.newsRepository = newsRepository;
+    public DataLoader(UserRepository userRepository,
+                      DomandeRepository domandeRepository,
+                      CapitoliRepository capitoliRepository,
+                      ArgomentiRepository argomentiRepository,
+                      QuizEseguitoRepository quizEseguitoRepository,
+                      PunteggioQuizRepository punteggioQuizRepository,
+                      NewsRepository newsRepository) {
+
+        this.userRepository = userRepository;
+        this.domandeRepository = domandeRepository;
         this.capitoliRepository = capitoliRepository;
+        this.argomentiRepository = argomentiRepository;
+        this.quizEseguitoRepository = quizEseguitoRepository;
+        this.punteggioQuizRepository = punteggioQuizRepository;
+        this.newsRepository = newsRepository;
     }
 
     @Override
     public void run(String... args) throws Exception {
-        // Caricamento news
-        if (newsRepository.count() == 0) {
-            List<News> newsList = Arrays.asList(
-                    createNews("Nuovo limite di velocità in città",
-                            "Il Comune ha stabilito un nuovo limite di 30 km/h nelle zone residenziali per aumentare la sicurezza dei pedoni.",
-                            LocalDateTime.now().minusDays(1)),
-                    createNews("Cintura di sicurezza obbligatoria",
-                            "Ricordiamo a tutti gli automobilisti che l'uso della cintura di sicurezza è obbligatorio anche nei sedili posteriori.",
-                            LocalDateTime.now().minusDays(2)),
-                    createNews("Uso del cellulare alla guida",
-                            "È severamente vietato l'uso del cellulare alla guida. Le sanzioni comprendono multe e decurtazione di punti dalla patente.",
-                            LocalDateTime.now().minusDays(3)),
-                    createNews("Nuove strisce pedonali illuminate",
-                            "Sono state installate nuove strisce pedonali con illuminazione LED per aumentare la visibilità dei pedoni di notte.",
-                            LocalDateTime.now().minusDays(4)),
-                    createNews("Controlli della velocità",
-                            "La polizia stradale intensificherà i controlli con autovelox sulle principali arterie cittadine.",
-                            LocalDateTime.now().minusHours(5)),
 
-                    createNews("Novità esame teorico",
-                            "A partire da questo mese, l'esame teorico prevede nuove domande sulla sicurezza stradale e sulle norme aggiornate.",
-                            LocalDateTime.now().minusDays(1).minusHours(2)),
-                    createNews("Suggerimenti per l'esame pratico",
-                            "Gli istruttori consigliano di concentrarsi sulle manovre di parcheggio e sul rispetto dei limiti di velocità per superare l'esame pratico.",
-                            LocalDateTime.now().minusDays(2).minusHours(1)),
-                    createNews("Esame teorico online",
-                            "È ora possibile sostenere l'esame teorico in modalità digitale presso alcune sedi abilitate, riducendo tempi di attesa.",
-                            LocalDateTime.now().minusDays(3).minusHours(3)),
-                    createNews("Preparazione esame pratico",
-                            "Consigli utili: ripetere i percorsi di guida, controllare specchietti e segnali e mantenere calma durante la prova.",
-                            LocalDateTime.now().minusDays(4).minusHours(2))
-            );
-
-            newsRepository.saveAll(newsList);
-            System.out.println("News iniziali caricate correttamente.");
+        // ================= USERS =====================
+        if (!userRepository.findByUsername("mario").isPresent()) {
+            User u1 = new User();
+            u1.setUsername("mario");
+            u1.setPassword("password");
+            userRepository.save(u1);
         }
 
-        // Caricamento capitoli con immagini
-        if (capitoliRepository.count() == 0) {
-            String[] capitoliTitoli = {
-                    "Incidenti", "Seganli di obbligo", "Patenti", "Posizioni Vigile",
-                    "Segnali di precedenza", "Segnaletica Orizzontale", "Segnali di pericolo",
-                    "Semaforo", "Sicurezza", "Strada"
-            };
+        if (!userRepository.findByUsername("admin").isPresent()) {
+            User u2 = new User();
+            u2.setUsername("admin");
+            u2.setPassword("admin");
+            userRepository.save(u2);
+        }
 
-            String[] immaginiFileName = {
-                    "incidenti.png", "obbligo.png", "patenti.png", "posizione_vigile.png",
-                    "segnale_precedenza.png", "segnaletica_orizzontale.png", "segnali_pericolo_cap.png",
-                    "semaforo.png", "sicurezza.png", "strade_cap.png"
-            };
+        // ================= NUOVI CAPITOLI =====================
+        Map<String, Capitoli> newCaps = new HashMap<>();
 
-            for (int i = 0; i < capitoliTitoli.length; i++) {
-                Capitoli capitolo = new Capitoli();
-                capitolo.setTitolo(capitoliTitoli[i]);
+        String[] capNames = {
+                "Incidenti", "Obbligo", "Patenti", "Posizione Vigile", "Segnale Precedenza",
+                "Segnaletica Orizzontale", "Segnali Pericolo", "Semaforo", "Sicurezza", "Strade"
+        };
 
-                Immagine immagine = new Immagine();
-                immagine.setFileName(immaginiFileName[i]);
-                immagine.setCapitolo(capitolo);
+        for (String capName : capNames) {
+            Capitoli cap = capitoliRepository.findByTitolo(capName)
+                    .orElseGet(() -> {
+                        Capitoli c = new Capitoli();
+                        c.setTitolo(capName);
+                        return capitoliRepository.save(c);
+                    });
+            newCaps.put(capName, cap);
+        }
 
-                capitolo.getImmagini().add(immagine);
+        // ================= NUOVI ARGOMENTI + IMMAGINI =====================
+        Map<String, String> argomentiImmagini = new LinkedHashMap<>();
+        argomentiImmagini.put("Incidenti", "incidenti.png");
+        argomentiImmagini.put("Obbligo", "obbligo.png");
+        argomentiImmagini.put("Patenti", "patenti.png");
+        argomentiImmagini.put("Posizione Vigile", "posizione_vigile.png");
+        argomentiImmagini.put("Segnale Precedenza", "segnale_precedenza.png");
+        argomentiImmagini.put("Segnaletica Orizzontale", "segnaletica_orizzontale.png");
+        argomentiImmagini.put("Segnali Pericolo", "segnali_pericolo_cap.png");
+        argomentiImmagini.put("Semaforo", "semaforo.png");
+        argomentiImmagini.put("Sicurezza", "sicurezza.png");
+        argomentiImmagini.put("Strade", "strade_cap.png");
 
-                capitoliRepository.save(capitolo);
+        for (Map.Entry<String, String> entry : argomentiImmagini.entrySet()) {
+
+            String titoloArgomento = entry.getKey();
+            String fileImg = entry.getValue();
+
+            if (!argomentiRepository.findByTitolo(titoloArgomento).isPresent()) {
+
+                Argomenti arg = new Argomenti();
+                arg.setTitolo(titoloArgomento);
+                arg.setTesto("Informazioni riguardo: " + titoloArgomento);
+                arg.setCapitolo(newCaps.get(titoloArgomento));
+
+                Immagine img = new Immagine();
+                img.setFileName(fileImg);
+                img.setArgomento(arg);
+
+                img.setCapitolo(newCaps.get(titoloArgomento));
+                newCaps.get(titoloArgomento).getImmagini().add(img);
+
+                arg.getImmagini().add(img);
+
+                argomentiRepository.save(arg);
             }
-
-
-
-            System.out.println("Capitoli e immagini iniziali caricati correttamente.");
         }
-    }
 
-    private News createNews(String titolo, String testo, LocalDateTime dataOra) {
-        News news = new News();
-        news.setTitolo(titolo);
-        news.setTesto(testo);
-        news.setDataOra(dataOra);
-        return news;
+        // ================= DOMANDE =====================
+        if (!domandeRepository.findByTesto("Il segnale indica una curva pericolosa a destra?").isPresent()) {
+            Domande d1 = new Domande();
+            d1.setTesto("Il segnale indica una curva pericolosa a destra?");
+            d1.setRisposta(true);
+            d1.setImmagine("curva.png");
+            domandeRepository.save(d1);
+        }
+
+        if (!domandeRepository.findByTesto("Il casco non è obbligatorio in città?").isPresent()) {
+            Domande d2 = new Domande();
+            d2.setTesto("Il casco non è obbligatorio in città?");
+            d2.setRisposta(false);
+            d2.setImmagine("casco.png");
+            domandeRepository.save(d2);
+        }
+
+        // ================= QUIZ ESEGUITO + PUNTEGGI =====================
+        Optional<QuizEseguito> existingQuiz =
+                quizEseguitoRepository.findByUserUsername("mario");
+
+        if (!existingQuiz.isPresent()) {
+
+            User user = userRepository.findByUsername("mario").orElse(null);
+
+            if (user != null) {
+
+                QuizEseguito quiz = new QuizEseguito();
+                quiz.setUser(user);
+                quiz.setPunteggio(1);
+                quizEseguitoRepository.save(quiz);
+
+                List<Domande> domande = new ArrayList<>();
+                domandeRepository.findAll().forEach(domande::add);
+
+                if (domande.size() >= 2) {
+
+                    if (!punteggioQuizRepository.existsByQuizAndDomanda(quiz, domande.get(0))) {
+                        PunteggioQuiz r1 = new PunteggioQuiz();
+                        r1.setQuiz(quiz);
+                        r1.setDomanda(domande.get(0));
+                        r1.setRisposta(true);
+                        punteggioQuizRepository.save(r1);
+                    }
+
+                    if (!punteggioQuizRepository.existsByQuizAndDomanda(quiz, domande.get(1))) {
+                        PunteggioQuiz r2 = new PunteggioQuiz();
+                        r2.setQuiz(quiz);
+                        r2.setDomanda(domande.get(1));
+                        r2.setRisposta(false);
+                        punteggioQuizRepository.save(r2);
+                    }
+                }
+            }
+        }
+
+        // ================= NEWS =====================
+        if (!newsRepository.findByTitolo("Nuove norme sui limiti di velocità").isPresent()) {
+            News n1 = new News();
+            n1.setTitolo("Nuove norme sui limiti di velocità");
+            n1.setTesto("Il nuovo limite urbano scende a 30 km/h in molte città.");
+            n1.setDataOra(LocalDateTime.now().minusDays(1));
+            newsRepository.save(n1);
+        }
+
+        if (!newsRepository.findByTitolo("Esame teorico aggiornato").isPresent()) {
+            News n2 = new News();
+            n2.setTitolo("Esame teorico aggiornato");
+            n2.setTesto("Aggiunte nuove domande sulla sicurezza stradale.");
+            n2.setDataOra(LocalDateTime.now().minusDays(2));
+            newsRepository.save(n2);
+        }
     }
 }

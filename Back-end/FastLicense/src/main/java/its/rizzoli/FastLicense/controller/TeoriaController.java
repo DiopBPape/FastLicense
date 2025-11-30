@@ -4,6 +4,7 @@ import its.rizzoli.FastLicense.DTO.ArgomentiDto;
 import its.rizzoli.FastLicense.DTO.CapitoliDto;
 import its.rizzoli.FastLicense.DTO.ImmagineDTO;
 import its.rizzoli.FastLicense.models.Capitoli;
+import its.rizzoli.FastLicense.models.Argomenti;
 import its.rizzoli.FastLicense.repositories.ArgomentiRepository;
 import its.rizzoli.FastLicense.repositories.CapitoliRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,9 +27,11 @@ public class TeoriaController {
     @Autowired
     private ArgomentiRepository argomentiRepository;
 
+    // =====================================================
+    // GET LISTA CAPITOLI
+    // =====================================================
     @GetMapping("/getCapitoli")
     public ResponseEntity<?> getAllCapitoli() {
-        // StreamSupport permette di convertire Iterable in Stream senza cast
         List<CapitoliDto> capitoliDtoList = StreamSupport.stream(capitoliRepository.findAll().spliterator(), false)
                 .map(c -> new CapitoliDto(
                         c.getId(),
@@ -48,8 +51,9 @@ public class TeoriaController {
         return ResponseEntity.ok(Map.of("capitoli", capitoliDtoList));
     }
 
-
-
+    // =====================================================
+    // GET LISTA ARGOMENTI DI UN CAPITOLO
+    // =====================================================
     @GetMapping("/getArgomento/{capitoloId}")
     public ResponseEntity<?> getArgomentiByCapitolo(@PathVariable Integer capitoloId) {
 
@@ -79,5 +83,43 @@ public class TeoriaController {
                 .collect(Collectors.toList());
 
         return ResponseEntity.ok(Map.of("argomenti", argomentiDtoList));
+    }
+
+    // =====================================================
+    // GET DETTAGLIO DI UN ARGOMENTO SPECIFICO DI UN CAPITOLO
+    // =====================================================
+    @GetMapping("/getArgomentoDettaglio/{capitoloId}/{argomentoId}")
+    public ResponseEntity<?> getArgomentoDettaglio(
+            @PathVariable Integer capitoloId,
+            @PathVariable Integer argomentoId) {
+
+        Capitoli capitolo = capitoliRepository.findById(capitoloId).orElse(null);
+        if (capitolo == null) {
+            return ResponseEntity.status(404).body(Map.of("error", "Capitolo non trovato"));
+        }
+
+        Argomenti argomento = argomentiRepository.findById(argomentoId).orElse(null);
+        if (argomento == null || !argomento.getCapitolo().getId().equals(capitoloId)) {
+            return ResponseEntity.status(404).body(Map.of("error", "Argomento non trovato in questo capitolo"));
+        }
+
+        ArgomentiDto dto = new ArgomentiDto(
+                argomento.getId(),
+                argomento.getTitolo(),
+                argomento.getTesto(),
+                capitolo.getId(),
+                capitolo.getTitolo(),
+                argomento.getImmagini()
+                        .stream()
+                        .map(img -> new ImmagineDTO(
+                                img.getId(),
+                                img.getArgomento() != null ? img.getArgomento().getId() : null,
+                                img.getCapitolo() != null ? img.getCapitolo().getId() : null,
+                                img.getFileName()
+                        ))
+                        .collect(Collectors.toList())
+        );
+
+        return ResponseEntity.ok(Map.of("argomento", dto));
     }
 }
