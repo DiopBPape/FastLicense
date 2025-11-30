@@ -11,6 +11,7 @@ import java.util.Optional;
 public class AuthService {
 
     private final UserRepository userRepository;
+    private User loggedUser;  // tiene traccia dell'utente loggato
 
     public AuthService(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -21,8 +22,24 @@ public class AuthService {
         Optional<User> userOpt = userRepository.findByUsername(username);
         if (userOpt.isPresent()) {
             User user = userOpt.get();
-            return BCrypt.checkpw(password, user.getPassword());
+            System.out.println(BCrypt.hashpw("password", BCrypt.gensalt()));
+            if (BCrypt.checkpw(password, user.getPassword())) {
+
+                this.loggedUser = user;  // memorizza l'utente loggato
+                return true;
+            }
         }
+
         return false;
+    }
+
+    // Restituisce l'utente loggato
+    public User getLoggedUser() {
+        return loggedUser;
+    }
+
+    // Logout
+    public void logout() {
+        this.loggedUser = null;
     }
 }

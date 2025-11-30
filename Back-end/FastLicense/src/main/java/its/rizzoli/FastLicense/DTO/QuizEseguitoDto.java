@@ -1,9 +1,12 @@
 package its.rizzoli.FastLicense.DTO;
 
+import java.util.List;
+
 public class QuizEseguitoDto {
     private Integer id;
     private int punteggio;
     private Integer userId;
+    private List<PunteggioQuizDto> risposte;
 
 
     public Integer getUserId() {
@@ -28,6 +31,14 @@ public class QuizEseguitoDto {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public List<PunteggioQuizDto> getRisposte() {
+        return risposte;
+    }
+
+    public void setRisposte(List<PunteggioQuizDto> risposte) {
+        this.risposte = risposte;
     }
 }
 

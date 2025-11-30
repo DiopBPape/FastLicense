@@ -3,6 +3,7 @@ package its.rizzoli.FastLicense.utility;
 import its.rizzoli.FastLicense.models.*;
 import its.rizzoli.FastLicense.repositories.*;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
@@ -43,14 +44,14 @@ public class DataLoader implements CommandLineRunner {
         if (!userRepository.findByUsername("mario").isPresent()) {
             User u1 = new User();
             u1.setUsername("mario");
-            u1.setPassword("password");
+            u1.setPassword(BCrypt.hashpw("password", BCrypt.gensalt()));
             userRepository.save(u1);
         }
 
         if (!userRepository.findByUsername("admin").isPresent()) {
             User u2 = new User();
             u2.setUsername("admin");
-            u2.setPassword("admin");
+            u2.setPassword(BCrypt.hashpw("admin", BCrypt.gensalt()));
             userRepository.save(u2);
         }
 
