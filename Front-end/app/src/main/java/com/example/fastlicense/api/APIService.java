@@ -2,6 +2,8 @@ package com.example.fastlicense.api;
 
 import android.view.PixelCopy;
 
+import com.example.fastlicense.model.DomandeDTO;
+import com.example.fastlicense.model.ListaDomande;
 import com.example.fastlicense.model.LoginResponse;
 import com.example.fastlicense.model.NewsDTO;
 import com.example.fastlicense.model.UserDTO;
@@ -24,5 +26,9 @@ public interface APIService {
     public Call<LoginResponse> login(@Body UserDTO userDTO);
     @GET("news")
     public Call<List<NewsDTO>> getAllNews();
+
+    @GET("getDomande")
+    Call<ListaDomande> getThirtyRandomQuestions();
+
 
 }
