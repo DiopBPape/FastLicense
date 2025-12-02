@@ -1,13 +1,25 @@
 package com.example.fastlicense;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import com.example.fastlicense.api.APIManager;
+import com.example.fastlicense.model.LoginResponse;
+import com.example.fastlicense.model.UserDTO;
+
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 import com.example.fastlicense.api.APIManager;
@@ -31,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         EditText usernameTxt = findViewById(R.id.editEmail);
         EditText passwordTxt = findViewById(R.id.editPassword);
-        loginBtn = findViewById(R.id.btnLogin);
+        Button loginBtn = findViewById(R.id.btnLogin);
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,13 +54,13 @@ public class MainActivity extends AppCompatActivity {
                 APIManager.apiService.login(user).enqueue(new Callback<LoginResponse>() {
                     @Override
                     public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                        if(response.isSuccessful()){
+                        if (response.isSuccessful()) {
                             Intent intent = new Intent(MainActivity.this, Home.class);
                             startActivity(intent);
                             finish();
                             //String body = response.body();
 
-                        }else{
+                        } else {
                             Toast.makeText(MainActivity.this, "Login fallito", Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -64,3 +76,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 }
+
+
+

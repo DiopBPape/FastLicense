@@ -54,5 +54,13 @@ public class Home extends AppCompatActivity {
             }
         });
 
+        rombo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Home.this, Capitoli.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

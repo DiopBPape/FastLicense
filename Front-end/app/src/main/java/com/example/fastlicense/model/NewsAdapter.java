@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.fastlicense.R;
-import com.example.fastlicense.model.NewsDTO;
 
 import java.util.List;
 

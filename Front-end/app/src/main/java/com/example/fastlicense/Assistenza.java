@@ -9,6 +9,8 @@ import android.widget.FrameLayout;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 public class Assistenza extends AppCompatActivity {
 
     @Override
@@ -17,6 +19,8 @@ public class Assistenza extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_assistenza);
 
+        BottomNavigationView bottomMenu = findViewById(R.id.bottomNavigation);
+        bottomMenu.setOnItemSelectedListener(item -> BottonMenu.switchPage(this, item));
 
         FrameLayout mapBox = findViewById(R.id.mapBox);
 

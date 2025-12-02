@@ -20,3 +20,19 @@ local.properties # path SDK locale
 
 .DS_Store        # macOS
 Thumbs.db        # Windows
+# ---------------------------
+# OneDrive / file temporanei Windows
+# ---------------------------
+
+~$*              # file temporanei creati da Office/OneDrive
+tmp/             # cartelle temporanee Android build
+out/             # cartelle temporanee Android build
+*.log            # log generati durante la build
+
+#android
+.gradle/         # cache locale Gradle
+captures/        # screenshot/capture Android Studio
+.externalNativeBuild/
+*.apk
+*.ap_
+*.aab

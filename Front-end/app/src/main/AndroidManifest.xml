@@ -2,9 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-
     <uses-permission android:name="android.permission.INTERNET" />
-
 
     <application
         android:allowBackup="true"
@@ -14,7 +12,26 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.FastLicense">
+        android:theme="@style/Theme.FastLicense"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".Capitoli"
+            android:exported="false" />
+        <activity
+            android:name=".Test"
+            android:exported="false" />
+        <activity
+            android:name=".News"
+            android:exported="false" />
+        <activity
+            android:name=".AreaUtente"
+            android:exported="false" />
+        <activity
+            android:name=".Assistenza"
+            android:exported="false" />
+        <activity
+            android:name=".Quiz"
+            android:exported="false" />
         <activity
             android:name=".News"
             android:exported="false" />

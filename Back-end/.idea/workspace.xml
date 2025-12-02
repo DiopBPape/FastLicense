@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6a24b296-f8d0-47e6-906a-3c5cab6ebcc0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-end/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-end/.idea/AndroidProjectSystem.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/.idea/AndroidProjectSystem.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-end/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-end/.idea/deploymentTargetSelector.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/.idea/deploymentTargetSelector.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-end/.idea/deviceManager.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/.idea/deviceManager.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-end/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-end/.idea/migrations.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/.idea/migrations.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-end/.idea/runConfigurations.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/.idea/runConfigurations.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-end/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-end/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-end/app/src/main/java/com/example/fastlicense/BottonMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/app/src/main/java/com/example/fastlicense/BottonMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-end/app/src/main/java/com/example/fastlicense/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/app/src/main/java/com/example/fastlicense/Home.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-end/app/src/main/java/com/example/fastlicense/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/app/src/main/java/com/example/fastlicense/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-end/app/src/main/res/drawable/cerchio.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/app/src/main/res/drawable/cerchio.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-end/app/src/main/res/drawable/home_icon.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/app/src/main/res/drawable/home_icon.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-end/app/src/main/res/drawable/input_background.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/app/src/main/res/drawable/input_background.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-end/app/src/main/res/drawable/profile_icon.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/app/src/main/res/drawable/profile_icon.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-end/app/src/main/res/drawable/quadrato.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/app/src/main/res/drawable/quadrato.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-end/app/src/main/res/drawable/rombo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/app/src/main/res/drawable/rombo.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-end/app/src/main/res/drawable/triangolo.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/app/src/main/res/drawable/triangolo.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-end/app/src/main/res/layout/activity_home.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/app/src/main/res/layout/activity_home.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-end/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-end/app/src/main/res/menu/bottom_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/app/src/main/res/menu/bottom_menu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-end/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Front-end/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/../Front-end/gradlew.bat" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "DiopBPape"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/DiopBPape/FastLicense.git",
+    "accountId": "955afcc3-91c7-412c-a2ad-ad32e6dc4501"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="361BGxSvN0bEdTl3CxD7qQtTmyK" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/PapeBabacarDiop/OneDrive - ITS Angelo Rizzoli/Desktop/FastLicense/FastLicense/Back-end/FastLicense",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="FastLicenseApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="FastLicense" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="its.rizzoli.FastLicense.FastLicenseApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.24807.4" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.24807.4" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6a24b296-f8d0-47e6-906a-3c5cab6ebcc0" name="Changes" comment="" />
+      <created>1764164104689</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1764164104689</updated>
+      <workItem from="1764164105769" duration="80000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

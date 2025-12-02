@@ -1,18 +1,13 @@
 package com.example.fastlicense;
 
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.fastlicense.api.APIManager;
-import com.example.fastlicense.api.APIService;
+import com.example.fastlicense.model.CapitoliAdapter;
 import com.example.fastlicense.model.NewsAdapter;
 import com.example.fastlicense.model.NewsDTO;
 import com.google.android.material.bottomnavigation.BottomNavigationView;

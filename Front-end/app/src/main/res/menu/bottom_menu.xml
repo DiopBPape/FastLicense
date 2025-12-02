@@ -9,8 +9,8 @@
         />
     <item
         android:id="@+id/areaUtente"
-
-        android:title="area utente"/>
+        android:title="area utente"
+        android:icon="@drawable/profile_icon"/>
 
 
         android:title="area utente"

@@ -1,7 +1,5 @@
 package com.example.fastlicense.model;
 
-import java.time.LocalDateTime;
-
 public class NewsDTO {
     private Integer id;
     private String titolo;
