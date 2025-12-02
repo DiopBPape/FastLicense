@@ -3,6 +3,7 @@ package com.example.fastlicense.api;
 import android.view.PixelCopy;
 
 import com.example.fastlicense.model.CapitoliDTO;
+import com.example.fastlicense.model.CapitoliResponse;
 import com.example.fastlicense.model.DomandeDTO;
 import com.example.fastlicense.model.ListaDomande;
 import com.example.fastlicense.model.LoginResponse;
@@ -32,7 +33,7 @@ public interface APIService {
     Call<ListaDomande> getThirtyRandomQuestions();
 
     @GET("getCapitoli")
-    Call<CapitoliDTO> getAllCapitoli();
+    Call<CapitoliResponse> getAllCapitoli();
 
 
 }
