@@ -11,13 +11,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.bumptech.glide.Glide;
 import com.example.fastlicense.R;
 
 import java.util.List;
 
 public class CapitoliAdapter extends ArrayAdapter<CapitoliDTO> {
 
-    public CapitoliAdapter(@NonNull Context context, @NonNull List<CapitoliDTO> objects) {
+   public CapitoliAdapter(@NonNull Context context, @NonNull List<CapitoliDTO> objects) {
         super(context, 0, objects);
     }
 
@@ -33,8 +34,12 @@ public class CapitoliAdapter extends ArrayAdapter<CapitoliDTO> {
         TextView capitoloTitolo = convertView.findViewById(R.id.capitoloTitolo);
         ImageView img = convertView.findViewById(R.id.capitoloImg);
 
+        String  imageUrl = "http://10.238.206.82:8080/immagini/" + capitoli.getImmagini();
+
         capitoloTitolo.setText(capitoli.getTitolo());
-        img.set
+        Glide.with(img.getContext())
+                .load(imageUrl)
+                .into(img);
 
         return convertView;
     }

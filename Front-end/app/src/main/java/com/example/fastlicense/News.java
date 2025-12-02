@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.fastlicense.api.APIManager;
 import com.example.fastlicense.model.CapitoliAdapter;
+import com.example.fastlicense.model.NewsAdapter;
 import com.example.fastlicense.model.NewsDTO;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -34,7 +35,7 @@ public class News extends AppCompatActivity {
             public void onResponse(Call<List<NewsDTO>> call, Response<List<NewsDTO>> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     List<NewsDTO> newsList = response.body();
-                    CapitoliAdapter adapter = new CapitoliAdapter(News.this, newsList);
+                    NewsAdapter adapter = new NewsAdapter(News.this, newsList);
                     listNews.setAdapter(adapter);
 
                 } else {
