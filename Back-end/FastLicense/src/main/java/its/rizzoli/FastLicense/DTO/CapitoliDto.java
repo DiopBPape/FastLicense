@@ -6,14 +6,15 @@ public class CapitoliDto {
 
     private Integer id;
     private String titolo;
-    private List<ImmagineDTO> immagini; // solo URL delle immagini
+    private String immagine;
+
 
     public CapitoliDto() {}
 
-    public CapitoliDto(Integer id, String titolo, List<ImmagineDTO> immagini) {
+    public CapitoliDto(Integer id, String titolo, String immagine) {
         this.id = id;
         this.titolo = titolo;
-        this.immagini = immagini;
+        this.immagine = immagine;
     }
 
     public Integer getId() {
@@ -32,11 +33,5 @@ public class CapitoliDto {
         this.titolo = titolo;
     }
 
-    public List<ImmagineDTO> getImmagini() {
-        return immagini;
-    }
 
-    public void setImmagini(List<ImmagineDTO> immagini) {
-        this.immagini = immagini;
-    }
 }
