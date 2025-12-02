@@ -33,5 +33,11 @@ public class CapitoliDto {
         this.titolo = titolo;
     }
 
+    public String getImmagine() {
+        return immagine;
+    }
 
+    public void setImmagine(String immagine) {
+        this.immagine = immagine;
+    }
 }

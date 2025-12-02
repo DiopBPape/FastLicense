@@ -6,13 +6,20 @@ public class CapitoliDTO {
 
     private Integer id;
     private String titolo;
-    private List<ImmagineDTO> immagini;
+    private String immagine;
+
 
     public Integer getId() { return id; }
     public String getTitolo() { return titolo; }
-    public List<ImmagineDTO> getImmagini() { return immagini; }
 
     public void setId(Integer id) { this.id = id; }
     public void setTitolo(String titolo) { this.titolo = titolo; }
-    public void setImmagini(List<ImmagineDTO> immagini) { this.immagini = immagini; }
+
+    public String getImmagine() {
+        return immagine;
+    }
+
+    public void setImmagine(String immagine) {
+        this.immagine = immagine;
+    }
 }

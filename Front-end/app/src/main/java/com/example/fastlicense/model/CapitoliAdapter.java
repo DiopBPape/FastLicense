@@ -34,7 +34,7 @@ public class CapitoliAdapter extends ArrayAdapter<CapitoliDTO> {
         TextView capitoloTitolo = convertView.findViewById(R.id.capitoloTitolo);
         ImageView img = convertView.findViewById(R.id.capitoloImg);
 
-        String  imageUrl = "http://10.238.206.82:8080/immagini/" + capitoli.getImmagini();
+        String  imageUrl = "http://10.238.206.82:8080/immagini/" + capitoli.getImmagine();
 
         capitoloTitolo.setText(capitoli.getTitolo());
         Glide.with(img.getContext())

@@ -30,23 +30,25 @@ public class TeoriaController {
     @GetMapping("/getCapitoli")
     public ResponseEntity<?> getAllCapitoli() {
         List<CapitoliDto> capitoliDtoList = StreamSupport.stream(capitoliRepository.findAll().spliterator(), false)
-                .map(c -> new CapitoliDto(
-                        c.getId(),
-                        c.getTitolo(),
-                        c.getImmagini()
-                                .stream()
-                                .map(img -> new ImmagineDTO(
-                                        img.getId(),
-                                        img.getArgomento() != null ? img.getArgomento().getId() : null,
-                                        img.getCapitolo() != null ? img.getCapitolo().getId() : null,
-                                        img.getFileName()
-                                ))
-                                .collect(Collectors.toList())
-                ))
+                .map(c -> {
+
+                    String image = null;
+
+                    if (!c.getImmagini().isEmpty()) {
+                        image = c.getImmagini().get(0).getFileName();
+                    }
+
+                    return new CapitoliDto(
+                            c.getId(),
+                            c.getTitolo(),
+                            image
+                    );
+                })
                 .collect(Collectors.toList());
 
         return ResponseEntity.ok(Map.of("capitoli", capitoliDtoList));
     }
+
 
     // =====================================================
     // GET LISTA ARGOMENTI DI UN CAPITOLO
