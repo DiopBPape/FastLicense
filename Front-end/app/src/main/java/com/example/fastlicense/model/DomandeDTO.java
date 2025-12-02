@@ -1,5 +1,7 @@
 package com.example.fastlicense.model;
 
+import com.example.fastlicense.api.APIManager;
+
 public class DomandeDTO {
 
     private int id;
@@ -23,7 +25,9 @@ public class DomandeDTO {
         this.testo = testo;
     }
 
+
     public String getImmagine() {
+
         return immagine;
     }
 

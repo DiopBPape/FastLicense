@@ -27,9 +27,6 @@ public class TeoriaController {
     @Autowired
     private ArgomentiRepository argomentiRepository;
 
-    // =====================================================
-    // GET LISTA CAPITOLI
-    // =====================================================
     @GetMapping("/getCapitoli")
     public ResponseEntity<?> getAllCapitoli() {
         List<CapitoliDto> capitoliDtoList = StreamSupport.stream(capitoliRepository.findAll().spliterator(), false)
