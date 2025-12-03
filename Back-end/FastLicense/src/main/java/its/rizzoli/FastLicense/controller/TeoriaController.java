@@ -50,9 +50,7 @@ public class TeoriaController {
     }
 
 
-    // =====================================================
-    // GET LISTA ARGOMENTI DI UN CAPITOLO
-    // =====================================================
+
     @GetMapping("/getArgomento/{capitoloId}")
     public ResponseEntity<?> getArgomentiByCapitolo(@PathVariable Integer capitoloId) {
 
@@ -71,22 +69,18 @@ public class TeoriaController {
                         capitolo.getTitolo(),
                         a.getImmagini()
                                 .stream()
-                                .map(img -> new ImmagineDTO(
-                                        img.getId(),
-                                        img.getArgomento() != null ? img.getArgomento().getId() : null,
-                                        img.getCapitolo() != null ? img.getCapitolo().getId() : null,
-                                        img.getFileName()
-                                ))
+                                .map(img -> img.getFileName()) // <-- SOLO STRINGA
                                 .collect(Collectors.toList())
                 ))
                 .collect(Collectors.toList());
 
+
+
         return ResponseEntity.ok(Map.of("argomenti", argomentiDtoList));
     }
 
-    // =====================================================
-    // GET DETTAGLIO DI UN ARGOMENTO SPECIFICO DI UN CAPITOLO
-    // =====================================================
+
+
     @GetMapping("/getArgomentoDettaglio/{capitoloId}/{argomentoId}")
     public ResponseEntity<?> getArgomentoDettaglio(
             @PathVariable Integer capitoloId,
@@ -110,15 +104,11 @@ public class TeoriaController {
                 capitolo.getTitolo(),
                 argomento.getImmagini()
                         .stream()
-                        .map(img -> new ImmagineDTO(
-                                img.getId(),
-                                img.getArgomento() != null ? img.getArgomento().getId() : null,
-                                img.getCapitolo() != null ? img.getCapitolo().getId() : null,
-                                img.getFileName()
-                        ))
+                        .map(img -> img.getFileName())
                         .collect(Collectors.toList())
         );
 
         return ResponseEntity.ok(Map.of("argomento", dto));
     }
+
 }

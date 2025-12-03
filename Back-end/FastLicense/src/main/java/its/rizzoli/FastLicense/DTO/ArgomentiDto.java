@@ -13,13 +13,13 @@ public class ArgomentiDto {
     private String capitoloTitolo;
 
     // Solo URL delle immagini
-    private List<ImmagineDTO> immagini;
+    private List<String> immagini;
 
     public ArgomentiDto() {}
 
     public ArgomentiDto(Integer id, String titolo, String testo,
                         Integer capitoloId, String capitoloTitolo,
-                        List<ImmagineDTO> immagini) {
+                        List<String> immagini) {
         this.id = id;
         this.titolo = titolo;
         this.testo = testo;
@@ -68,11 +68,11 @@ public class ArgomentiDto {
         this.capitoloTitolo = capitoloTitolo;
     }
 
-    public List<ImmagineDTO> getImmagini() {
+    public List<String> getImmagini() {
         return immagini;
     }
 
-    public void setImmagini(List<ImmagineDTO> immagini) {
+    public void setImmagini(List<String> immagini) {
         this.immagini = immagini;
     }
 }

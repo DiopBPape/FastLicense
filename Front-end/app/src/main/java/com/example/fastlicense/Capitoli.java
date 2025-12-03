@@ -1,6 +1,8 @@
 package com.example.fastlicense;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
@@ -37,6 +39,17 @@ public class Capitoli extends AppCompatActivity {
 
         ListView listCapitoli = findViewById(R.id.listCapitoli);
 
+
+        /*listCapitoli.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Capitoli.this, Argometi.class);
+                intent.putExtra("capitoloId", listCapitoli.getId());
+                startActivity(intent);
+
+            }
+        });*/
+
         APIManager.apiService.getAllCapitoli().enqueue(new Callback<CapitoliResponse>() {
             @Override
             public void onResponse(Call<CapitoliResponse> call, Response<CapitoliResponse> response) {
@@ -53,6 +66,13 @@ public class Capitoli extends AppCompatActivity {
             public void onFailure(Call<CapitoliResponse> call, Throwable t) {
                 t.printStackTrace();
             }
+        });
+
+        listCapitoli.setOnItemClickListener((parent, view, position, id) -> {
+            CapitoliDTO capitolo = (CapitoliDTO) parent.getItemAtPosition(position);
+            Intent intent = new Intent(Capitoli.this, Argometi.class);
+            intent.putExtra("capitoloId", capitolo.getId());
+            startActivity(intent);
         });
 
 

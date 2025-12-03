@@ -37,7 +37,7 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder> {
 
         holder.txtDomanda.setText(q.getTesto());
 
-        String  imageUrl = "http://10.238.206.82:8080/immagini/" + q.getImmagine();
+        String  imageUrl = "http://192.168.1.107:8080/immagini/" + q.getImmagine();
 
         Glide.with(holder.itemView.getContext())
                 .load(imageUrl)

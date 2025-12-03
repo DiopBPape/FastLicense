@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class APIManager {
 
-    private static final String URL = "http://10.238.206.82:8080/";
+    private static final String URL = "http://192.168.1.107:8080/";
     private static final Retrofit retrofit = new Retrofit.Builder()
             .baseUrl(URL)
             .addConverterFactory(GsonConverterFactory.create())

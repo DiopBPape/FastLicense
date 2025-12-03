@@ -16,9 +16,9 @@ import com.example.fastlicense.R;
 
 import java.util.List;
 
-public class CapitoliAdapter extends ArrayAdapter<CapitoliDTO> {
+public class ArgomentiAdapter extends ArrayAdapter<ArgomentiDTO> {
 
-   public CapitoliAdapter(@NonNull Context context, @NonNull List<CapitoliDTO> objects) {
+    public ArgomentiAdapter(@NonNull Context context, @NonNull List<ArgomentiDTO> objects) {
         super(context, 0, objects);
     }
 
@@ -26,17 +26,17 @@ public class CapitoliAdapter extends ArrayAdapter<CapitoliDTO> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.capitoli_item, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.argomenti_item, parent, false);
         }
 
-        CapitoliDTO capitoli= getItem(position);
+        ArgomentiDTO argomenti= getItem(position);
 
-        TextView capitoloTitolo = convertView.findViewById(R.id.capitoloTitolo);
-        ImageView img = convertView.findViewById(R.id.capitoloImg);
+        TextView argomentiTitolo = convertView.findViewById(R.id.titoloArgomenti);
+        ImageView img = convertView.findViewById(R.id.argomentoImg);
 
-        String  imageUrl = "http://192.168.1.107:8080/immagini/" + capitoli.getImmagine();
+        String  imageUrl = "http://192.168.1.107:8080/immagini/" + argomenti.getImmagini();
 
-        capitoloTitolo.setText(capitoli.getTitolo());
+        argomentiTitolo.setText(argomenti.getTitolo());
         Glide.with(img.getContext())
                 .load(imageUrl)
                 .into(img);
@@ -44,4 +44,3 @@ public class CapitoliAdapter extends ArrayAdapter<CapitoliDTO> {
         return convertView;
     }
 }
-

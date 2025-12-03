@@ -15,6 +15,12 @@
         android:theme="@style/Theme.FastLicense"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ArgomentoDettaglio"
+            android:exported="false" />
+        <activity
+            android:name=".Argometi"
+            android:exported="false" />
+        <activity
             android:name=".Capitoli"
             android:exported="false" />
         <activity
