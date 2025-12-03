@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
 import com.example.fastlicense.R;
+import com.example.fastlicense.api.APIManager;
 
 import java.util.List;
 
@@ -34,7 +35,7 @@ public class ArgomentiAdapter extends ArrayAdapter<ArgomentiDTO> {
         TextView argomentiTitolo = convertView.findViewById(R.id.titoloArgomenti);
         ImageView img = convertView.findViewById(R.id.argomentoImg);
 
-        String  imageUrl = "http://192.168.1.107:8080/immagini/" + argomenti.getImmagini();
+        String  imageUrl = APIManager.getBaseUrl() + "immagini/" + argomenti.getImmagini();
 
         argomentiTitolo.setText(argomenti.getTitolo());
         Glide.with(img.getContext())

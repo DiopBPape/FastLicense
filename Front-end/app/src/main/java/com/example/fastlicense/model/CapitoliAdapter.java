@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
 import com.example.fastlicense.R;
+import com.example.fastlicense.api.APIManager;
 
 import java.util.List;
 
@@ -34,7 +35,7 @@ public class CapitoliAdapter extends ArrayAdapter<CapitoliDTO> {
         TextView capitoloTitolo = convertView.findViewById(R.id.capitoloTitolo);
         ImageView img = convertView.findViewById(R.id.capitoloImg);
 
-        String  imageUrl = "http://192.168.1.107:8080/immagini/" + capitoli.getImmagine();
+        String  imageUrl = APIManager.getBaseUrl() + "immagini/" + capitoli.getImmagine();
 
         capitoloTitolo.setText(capitoli.getTitolo());
         Glide.with(img.getContext())

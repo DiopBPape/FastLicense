@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.fastlicense.R;
+import com.example.fastlicense.api.APIManager;
 
 import java.util.HashMap;
 import java.util.List;
@@ -48,7 +49,7 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder> {
         holder.txtDomanda.setText(q.getTesto());
 
         if (q.getImmagine() != null && !q.getImmagine().isEmpty()) {
-            String imageUrl = "http://192.168.1.107:8080/immagini/" + q.getImmagine();
+            String imageUrl = APIManager.getBaseUrl() + "immagini/" + q.getImmagine();
             Glide.with(holder.itemView.getContext())
                     .load(imageUrl)
                     .into(holder.image);

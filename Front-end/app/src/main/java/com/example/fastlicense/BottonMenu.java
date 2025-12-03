@@ -12,15 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class BottonMenu {
-    /*public static void collegamento(Activity activity, BottomNavigationView bottomNav){
 
-        bottomNav.setOnItemSelectedListener(item -> switchPage(activity, item));
-        if (activity instanceof Home) {
-            bottomNav.setSelectedItemId(R.id.home);
-        } else if (activity instanceof AreaUtente) {
-            bottomNav.setSelectedItemId(R.id.areaUtente);
-        }
-    }*/
 
     public static boolean switchPage(Activity activity, MenuItem item){
         int id = item.getItemId();

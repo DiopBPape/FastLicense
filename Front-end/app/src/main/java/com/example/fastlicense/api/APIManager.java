@@ -12,7 +12,7 @@ public class APIManager {
             .build();
     public static final APIService apiService = retrofit.create(APIService.class);
 
-    public String getUrl(){
+    public static String getBaseUrl(){
         return URL;
     }
 }

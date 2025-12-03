@@ -58,7 +58,7 @@ public class ArgomentoDettaglio extends AppCompatActivity {
                         // Mostra solo la prima immagine se esiste
                         if (arg.getImmagini() != null && !arg.getImmagini().isEmpty()) {
                             String firstImage = arg.getImmagini().get(0);
-                            String imageUrl = "http://192.168.1.107:8080/immagini/" + firstImage;
+                            String imageUrl = APIManager.getBaseUrl() + "immagini/" + firstImage;
                             Glide.with(ArgomentoDettaglio.this)
                                     .load(imageUrl)
                                     .into(imgDettaglio);
