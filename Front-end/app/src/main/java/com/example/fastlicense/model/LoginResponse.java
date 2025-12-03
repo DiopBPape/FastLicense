@@ -6,4 +6,8 @@ public class LoginResponse {
     public String getRisultato() {
         return risultato;
     }
+
+    public void setRisultato(String risultato) {
+        this.risultato = risultato;
+    }
 }
