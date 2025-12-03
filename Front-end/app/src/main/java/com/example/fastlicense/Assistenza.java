@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,11 +22,11 @@ public class Assistenza extends AppCompatActivity {
 
         BottomNavigationView bottomMenu = findViewById(R.id.bottomNavigation);
         bottomMenu.setOnItemSelectedListener(item -> BottonMenu.switchPage(this, item));
+        
+        ImageView mappa = findViewById(R.id.mappa);
 
-        FrameLayout mapBox = findViewById(R.id.mapBox);
 
-
-        mapBox.setOnClickListener(new View.OnClickListener() {
+        mappa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String address = "ITS Angelo Rizzoli, Via Amoretti, Milano";

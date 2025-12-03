@@ -40,15 +40,7 @@ public class Capitoli extends AppCompatActivity {
         ListView listCapitoli = findViewById(R.id.listCapitoli);
 
 
-        /*listCapitoli.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Capitoli.this, Argometi.class);
-                intent.putExtra("capitoloId", listCapitoli.getId());
-                startActivity(intent);
 
-            }
-        });*/
 
         APIManager.apiService.getAllCapitoli().enqueue(new Callback<CapitoliResponse>() {
             @Override
