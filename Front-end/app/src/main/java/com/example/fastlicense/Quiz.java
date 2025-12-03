@@ -11,6 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Quiz extends AppCompatActivity {
+
+
+    Button btnRandomQuiz, btnMinisteriale;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,13 +22,29 @@ public class Quiz extends AppCompatActivity {
         BottomNavigationView bottomMenu = findViewById(R.id.bottomNavigation);
         bottomMenu.setOnItemSelectedListener(item -> BottonMenu.switchPage(this, item));
 
-        Button RandomQuiz = findViewById(R.id.btnRandom);
+        btnRandomQuiz = findViewById(R.id.btnRandom);
+        btnMinisteriale = findViewById(R.id.btnMinisteriale);
 
-        RandomQuiz.setOnClickListener(new View.OnClickListener() {
+        btnRandomQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Quiz.this, Test.class);
+                intent.putExtra("showButton", true);
                 startActivity(intent);
+                finish();
+            }
+        });
+
+        btnMinisteriale.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                Intent intent = new Intent(Quiz.this, Test.class);
+                intent.putExtra("showButton", false); // o false
+                startActivity(intent);
+                finish();
+
             }
         });
     }

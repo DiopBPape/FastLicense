@@ -7,6 +7,17 @@
     tools:context=".Test">
 
 
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPagerQuiz"
+        android:layout_width="341dp"
+        android:layout_height="535dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.566" />
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="409dp"
@@ -52,7 +63,6 @@
         android:layout_width="wrap_content"
         android:layout_height="62dp"
         android:backgroundTint="@color/black"
-        android:text="avanti"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,30 +71,74 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.073" />
 
+    <ImageView
+        android:layout_width="46dp"
+        android:layout_height="40dp"
+        android:src="@drawable/right_arrow"
+        app:layout_constraintBottom_toBottomOf="@+id/btnNext"
+        app:layout_constraintEnd_toEndOf="@+id/btnNext"
+        app:layout_constraintStart_toStartOf="@+id/btnNext"
+        app:layout_constraintTop_toTopOf="@+id/btnNext" />
+
     <Button
         android:id="@+id/btnPrev"
         android:layout_width="wrap_content"
         android:layout_height="62dp"
         android:backgroundTint="@color/black"
-        android:text="indietro"
-        android:textColor="@color/white"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.073" />
+    <ImageView
+        android:layout_width="46dp"
+        android:layout_height="40dp"
+        android:src="@drawable/left_arrow"
+        app:layout_constraintBottom_toBottomOf="@+id/btnPrev"
+        app:layout_constraintEnd_toEndOf="@+id/btnPrev"
+        app:layout_constraintStart_toStartOf="@+id/btnPrev"
+        app:layout_constraintTop_toTopOf="@+id/btnPrev" />
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewPagerQuiz"
-        android:layout_width="370dp"
-        android:layout_height="563dp"
+
+    <Button
+        android:id="@+id/btnInvia"
+        android:layout_width="134dp"
+        android:layout_height="57dp"
+        android:backgroundTint="#FFA500"
+        android:text="Invia Test"
+        android:textColor="@color/white"
+        android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintHorizontal_bias="0.299"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.75" />
+        app:layout_constraintTop_toTopOf="@+id/toolbar"
+        app:layout_constraintVertical_bias="0.982" />
+
+    <Button
+        android:id="@+id/btnTeoria"
+        android:layout_width="63dp"
+        android:layout_height="59dp"
+        android:backgroundTint="#FFFF00"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.882"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/viewPagerQuiz"
+        app:layout_constraintVertical_bias="0.983" />
+
+    <ImageView
+        android:id="@+id/book"
+        android:layout_width="33dp"
+        android:layout_height="48dp"
+        android:src="@drawable/book"
+        app:layout_constraintBottom_toBottomOf="@+id/btnTeoria"
+        app:layout_constraintEnd_toEndOf="@+id/btnTeoria"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toStartOf="@+id/btnTeoria"
+        app:layout_constraintTop_toTopOf="@+id/btnTeoria" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

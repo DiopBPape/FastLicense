@@ -15,6 +15,9 @@
         android:theme="@style/Theme.FastLicense"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Risposte"
+            android:exported="false" />
+        <activity
             android:name=".ArgomentoDettaglio"
             android:exported="false" />
         <activity

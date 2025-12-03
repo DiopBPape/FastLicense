@@ -6,9 +6,12 @@ import com.example.fastlicense.model.CapitoliResponse;
 import com.example.fastlicense.model.ListaDomande;
 import com.example.fastlicense.model.LoginResponse;
 import com.example.fastlicense.model.NewsDTO;
+import com.example.fastlicense.model.QuizDettaglioResponse;
+import com.example.fastlicense.model.QuizEseguitoDto;
 import com.example.fastlicense.model.UserDTO;
 
 import java.util.List;
+import java.util.Map;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -38,7 +41,14 @@ public interface APIService {
             @Path("argomentoId") int argomentoId
     );
 
+    @POST("salvaQuiz")
+    Call<Map<String, Object>> salvaQuiz(@Body List<QuizEseguitoDto> quizDtoList);
 
+   /* @GET("/getPunteggio")
+    Call<Map<String, Object>> getQuizAttuale(@Query("quizId") int quizId);*/
+
+    @GET("getQuizEseguito/{quizId}")
+    Call<QuizDettaglioResponse> getQuizEseguitoDettaglio(@Path("quizId") int quizId);
 
 
 }
