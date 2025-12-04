@@ -112,6 +112,14 @@ public class Test extends AppCompatActivity {
                 inviaQuiz();
             }
         });
+
+        btnTeoria.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Test.this, Capitoli.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void loadQuizFromServer() {
